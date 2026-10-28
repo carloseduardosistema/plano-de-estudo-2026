@@ -1,0 +1,42 @@
+sql
+```
+-- a instrucao abaixo cria banco ou gaveta
+CREATE DATABASE aula CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+--a instrucao abaixo consegue lista as gavetas ou bancos
+SHOW DATABASES;
+
+--A funcao  Use e para alocar o banco
+USE aula;
+
+-- Criacao da tabela
+
+CREATE TABLE alunos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    curso VARCHAR(50),
+    nota DECIMAL(4,2),
+    data_nascimento DATE
+);
+
+(linha 3 - chave primaria ou identificar unica linha )
+(linha 4 ate 7 - tipos -- inteiro, data , texto e decimal)
+
+-- A funcao de demostrar tabela
+DESCRIBE alunos;
+
+-- Criacao do insert 
+
+INSERT INTO alunos (nome, curso, nota, data_nascimento) VALUES
+    ('Maria Silva', 'Computação', 8.50, '2002-05-14'),
+    ('João Souza', 'Direito', 6.00, '2001-11-03'),
+    ('Ana Costa', 'Computação', 9.50, '2003-02-27'),
+    ('Pedro Lima', 'Direito', 7.25, '2000-08-19'),
+    ('Juliana Rocha', 'Medicina', 9.00, '2002-12-01');
+
+-- Funcao seleciona a tabela alunos
+SELECT * FROM alunos;
+
+-- Funcao seleciona nome e nota... da tabela alunos
+SELECT nome, nota FROM alunos;
+```
