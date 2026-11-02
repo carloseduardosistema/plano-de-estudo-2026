@@ -1,0 +1,84 @@
+sql
+'''
+   == Tabela De Funções ==
+
+
+-- A funcao 'WHERE' le as linhas
+
+-- ORDER BY (ordem de implemento)
+
+-- LIMIT (limita a saida)
+
+--LIKE '%j' (comeca com j)
+
+--AND e OR (condition)
+
+--DELETE (deleta algo)
+
+--UPDATE (atualiza algo)
+
+--DROP (elimina tabela ou banco)
+
+--COUNT (conta as linhas)
+
+--SUM (soma)
+
+--AVG (media)
+
+--MIN e MAX  menor e maior
+
+--ROUND(x, 2)
+
+--GROUP BY (agrupa as linhas iguais)
+
+--HAVING (mostre so os grupos)
+
+
+== TESTES GERAIS ==
+
+SELECT * FROM alunos WHERE curso = 'Computação';
+(Esta linha seleciona os alunos de Computação )
+
+SELECT nome, nota FROM alunos WHERE nota >= 8 AND curso <> 'Medicina';
+(Esta linha seleciona nome e nota dos alunos acima da nota oito ou iqual  e diferente de medicina)
+ 
+SELECT * FROM alunos WHERE nome LIKE 'J%';
+(Esta linha pega os alunos que comeca com a letra 'J')
+
+
+SELECT nome, nota FROM alunos ORDER BY nota DESC;
+(Esta linha seleciona nome e nota, dos alunos que tirarao maior nota)
+
+SELECT nome, nota FROM alunos ORDER BY nota DESC LIMIT 2;
+(Esta linha seleciona nome e note,  dos dois primeiros alunos que tiraram maior nota)
+
+
+DELETE FROM alunos WHERE nome = 'Pedro Lima';
+(Esta linha deleta o aluno 'Pedro Lima')
+
+UPDATE alunos SET nota = 7.50 WHERE nome = 'João Souza';
+(Esta linha atualiza o nota do Joao)
+
+DROP DATABASE aula;
+(Esta linha elimina um banco)
+
+SELECT COUNT(*) FROM alunos;
+(Esta linha conta a guantidade de alunos)
+
+SELECT MIN(nota) AS menor, MAX(nota) AS maior FROM alunos;
+(Esta linha mostra a maior e menor nota)
+
+SELECT ROUND(AVG(nota), 2) AS media FROM alunos;
+(Esta linha mostra a media das notas  arredondadas )
+
+SELECT SUM(nota) AS soma FROM alunos WHERE curso = 'Computação';
+(Esta linha mostra soma das notas do curso Computação)
+
+SELECT curso, ROUND(AVG(nota), 2) AS media
+FROM alunos
+GROUP BY curso
+HAVING AVG(nota) > 8;
+(Esta linha seleciona curso e media, agrupadas em curso que tenha nota maior que oito)
+-- HAVING(filtrar grupos )  Diferente de WHERE(filtrar linhas)
+
+'''
